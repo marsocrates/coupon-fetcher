@@ -1,0 +1,29 @@
+{
+    "manifest_version": 3,
+    "name": "Coupon Fetcher",
+    "version": "1.0",
+    "description": "Scrape coupons and auto-apply them at checkout",
+    "permissions": [
+      "activeTab",
+      "scripting",
+      "storage"
+    ],
+    "host_permissions": [
+      "*://*.couponwebsite.com/*",
+      "*://*.shoppingwebsite.com/*"
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": "icons/icon.png"
+    },
+    "content_scripts": [
+      {
+        "matches": ["*://*.couponwebsite.com/*"],
+        "js": ["content.js"]
+      }
+    ]
+  }
+  
